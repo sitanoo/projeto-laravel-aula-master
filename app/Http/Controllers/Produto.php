@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class Produto extends Controller
 {
-    public function index(){
+    public function Produto(){
         $titulo = 'Institucional';
         $rodape = date('Y').' Todos os direitos reservados';
         

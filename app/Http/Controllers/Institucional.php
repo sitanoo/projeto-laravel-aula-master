@@ -4,20 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class Institucional extends Controller
 {
-    public function index(){
+    public function Institucional(){
         $titulo = 'Institucional';
         $rodape = date('Y').' Todos os direitos reservados';
         
-        $clientIP = \Request::ip();
+        $ip = \Request::ip();
         $url = \Request::url();
         
-        $caminho = '../storage/app';
+       $caminho = '../storage/app';
         $log = new LogConsulta($caminho);
      
-     $pagina = "home";
-     $data = $log->registrar($clientIP, $pagina);
+     $pagina = "Institucional";
+     $log->registrar($ip, $pagina);
         
         return view('site.Institucional', compact('titulo', 'rodape'));
     }

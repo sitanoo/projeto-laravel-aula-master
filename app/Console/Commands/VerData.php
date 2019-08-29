@@ -38,13 +38,13 @@ class VerData extends Command
      */
     public function handle()
     {   
-             $titulo = "FIESC SC - Senai" ;
+            /* $titulo = "FIESC SC - Senai" ;
      $rodape = date('Y').' Todos os direitos reservados';
      $caminho = '../storage/app';
      $log = new LogConsulta($caminho);
      $ip = $_SERVER['REMOTE_ADDR'];
      $pagina = "home";
-     $data = $log->registrar($ip, $pagina);
+     $data = $log->registrar($ip, $pagina);*/
         
     }
     

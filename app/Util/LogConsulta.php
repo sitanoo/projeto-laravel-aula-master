@@ -1,48 +1,41 @@
 <?php
 
-namespace App\Util;
+namespace app\Util;
 
 class LogConsulta {
 
     private $caminho;
-    
+
     public function __construct($caminho) {
         $this->caminho = $caminho;
     }
-    
-    public function registrar($formato = 'n') {
+
+    public function registrar($ip, $pagina) {
+
+        $data = date('d/m/Y H:i');
+     
         
-        if ($formato == 'n') {
-            $data = date('d/m/Y H:i');
-        } else if ($formato == 't') {
-            $data = time();
-        } else {
-            $data ="Parâmetro inválido";
-        }
-        
-        
-        
-        if (file_exists($this->caminho.'/log_geral.txt')) {
+        if (file_exists(''.$this->caminho.'/log_geral.txt')){
             $dadosAtuais = $this->capturar();
             $dadosAtuais .= "\n".$data;
-            $this->gravarArquivo($dadosAtuais);
+            $this->gravarArquivo($dadosAtuais, $ip, $pagina);
+            
         } else {
-            $this->gravarArquivo($data);
+            $this->gravarArquivo($data, $ip, $pagina);
         }
-        
+
         return $data;
+    }
+    
+    private function gravarArquivo($data, $ip, $pagina){
+        file_put_contents($this->caminho.'/log_geral.txt', $data. " - ". $ip ." - ". $pagina);
         
     }
     
-    private function gravarArquivo($data) {
-        file_put_contents ($this->caminho.'/log_geral.txt', $data);
-    }
-    
-    public function capturar() {
+    public function capturar(){
+        
         $dados = file_get_contents($this->caminho.'/log_geral.txt');
         return $dados;
     }
-    
-    
-    
+
 }

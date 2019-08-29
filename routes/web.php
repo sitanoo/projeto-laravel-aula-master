@@ -14,5 +14,5 @@
 Route::get('/', 'IndexController@index');
 Route::get('/contato', 'ContatoController@index');
 Route::get('/contato/rh', 'ContatoController@rh');
-Route::get('/institucional', 'Institucional@index');
-Route::get('/produto', 'Produto@index');
+Route::get('/institucional', 'Institucional@Institucional');
+Route::get('/produto', 'Produto@Produto');
