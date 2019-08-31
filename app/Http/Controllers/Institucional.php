@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Util\LogConsulta;
 
 
 class Institucional extends Controller
@@ -10,15 +11,13 @@ class Institucional extends Controller
     public function Institucional(){
         $titulo = 'Institucional';
         $rodape = date('Y').' Todos os direitos reservados';
-        
-        $ip = \Request::ip();
-        $url = \Request::url();
+
         
        $caminho = '../storage/app';
-        $log = new LogConsulta($caminho);
+       $log = new LogConsulta($caminho);
+       $data = $log->registrar();
      
-     $pagina = "Institucional";
-     $log->registrar($ip, $pagina);
+     
         
         return view('site.Institucional', compact('titulo', 'rodape'));
     }

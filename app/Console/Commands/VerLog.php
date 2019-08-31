@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Util\LogConsulta;
 
-class VerData extends Command
+class VerLog extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:verdata {formato? : Formato da data}';
+    protected $signature = 'app:verlog {formato? : Formato da data}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Possibilita ver a data atual da aplicação';
+    protected $description = 'Possibilita ver o log de acesso da aplicação';
 
     /**
      * Create a new command instance.
