@@ -21,14 +21,14 @@ class LogConsulta {
         }
         
         
-        if (file_exists($this->caminho.'/log_geral.txt')) {
+        if (file_exists($this->caminho.'/logGerauu.txt')) {
             $dadosAtuais = $this->capturar();
             
             $ip = $_SERVER['REMOTE_ADDR']; 
             
             $endereco = $_SERVER['PHP_SELF'];
             
-            $dadosAtuais .= "\n\n ((Data)): ".$data." ((IP)): ".$ip." ((Endereço)): ".$endereco;
+            $dadosAtuais .= "\n\n ((Página)): ".$endereco." ((IP)): ".$ip." ((Data)): ".$data;
             $this->gravarArquivo($dadosAtuais);
         } else {
             $this->gravarArquivo($data);
@@ -40,11 +40,11 @@ class LogConsulta {
     
     private function gravarArquivo($data) {
         file_put_contents
-            ($this->caminho.'/log_geral.txt', $data);
+            ($this->caminho.'/logGerauu.txt', $data);
     }
     
     public function capturar() {
-        $dados = file_get_contents($this->caminho.'/log_geral.txt');
+        $dados = file_get_contents($this->caminho.'/logGerauu.txt');
         return $dados;
     }
     
